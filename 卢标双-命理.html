@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>卢标双 命理性格分析报告</title>
+<style>
+/* ===== 全局主题：水墨玄金风格 ===== */
+:root {
+  --gold: #c9a86a;
+  --gold-light: #e8d5a8;
+  --gold-deep: #a07d3e;
+  --ink: #1a1814;
+  --ink-2: #242018;
+  --ink-3: #2e291e;
+  --text: #e8e0d0;
+  --text-dim: #a89b85;
+  --wood: #7cb342;
+  --fire: #e53935;
+  --earth: #8d6e63;
+  --metal: #b0bec5;
+  --water: #42a5f5;
+  --card-bg: #242018;
+  --border: #3d3525;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans SC", sans-serif;
+  background: linear-gradient(160deg, #14120e 0%, #1d1913 50%, #14120e 100%);
+  color: var(--text);
+  line-height: 1.75;
+  padding: 0 0 60px 0;
+}
+
+/* ===== 装饰背景 ===== */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(201,168,106,0.05) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(201,168,106,0.04) 0%, transparent 40%),
+    repeating-linear-gradient(45deg, transparent 0 60px, rgba(201,168,106,0.015) 60px 62px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== 头部 ===== */
+.hero {
+  text-align: center;
+  padding: 70px 20px 40px;
+  position: relative;
+}
+.hero::after {
+  content: "☯";
+  display: block;
+  font-size: 26px;
+  color: var(--gold);
+  opacity: 0.5;
+  margin-top: 18px;
+  letter-spacing: 10px;
+}
+.hero .kicker {
+  color: var(--gold);
+  letter-spacing: 8px;
+  font-size: 13px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.hero h1 {
+  font-size: 40px;
+  letter-spacing: 4px;
+  color: var(--gold-light);
+  text-shadow: 0 0 30px rgba(201,168,106,0.3);
+  font-weight: 300;
+}
+.hero .subtitle {
+  margin-top: 14px;
+  color: var(--text-dim);
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+.hero .subtitle span { color: var(--gold); }
+
+/* ===== 徽章条 ===== */
+.badges {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin: 26px 0 10px;
+}
+.badge {
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  padding: 8px 18px;
+  border-radius: 30px;
+  font-size: 13px;
+  color: var(--text);
+  letter-spacing: 1px;
+}
+.badge b { color: var(--gold); font-weight: 600; }
+
+/* ===== 通用卡片 ===== */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 30px 34px;
+  margin-bottom: 26px;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+.card::before {
+  content: "";
+  position: absolute;
+  top: -1px; left: 34px;
+  width: 46px; height: 2px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+.section-title {
+  font-size: 22px;
+  color: var(--gold-light);
+  letter-spacing: 3px;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+.section-title .num {
+  color: var(--gold);
+  font-size: 14px;
+  vertical-align: super;
+  margin-right: 8px;
+  letter-spacing: 0;
+}
+.section-desc {
+  color: var(--text-dim);
+  font-size: 13px;
+  margin-bottom: 22px;
+  padding-bottom: 16px;
+  border-bottom: 1px dashed var(--border);
+}
+h3.block-title {
+  font-size: 16px;
+  color: var(--gold);
+  margin: 22px 0 12px;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+h3.block-title::before { content: "❖ "; font-size: 12px; }
+h4 { font-size: 15px; color: var(--text); margin: 16px 0 8px; }
+
+/* ===== 表格 ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0 18px;
+  font-size: 14px;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 10px 12px;
+  text-align: center;
+}
+th {
+  background: rgba(201,168,106,0.12);
+  color: var(--gold-light);
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+td { color: var(--text); }
+td.dim { color: var(--text-dim); }
+tr:hover td { background: rgba(201,168,106,0.04); }
+table.info-table td:first-child {
+  background: rgba(201,168,106,0.06);
+  color: var(--gold);
+  font-weight: 600;
+  width: 150px;
+}
+
+/* ===== 五行颜色 ===== */
+.w-wood { color: var(--wood) !important; font-weight: 600; }
+.w-fire { color: var(--fire) !important; font-weight: 600; }
+.w-earth { color: var(--earth) !important; font-weight: 600; }
+.w-metal { color: var(--metal) !important; font-weight: 600; }
+.w-water { color: var(--water) !important; font-weight: 600; }
+.bg-wood { background: rgba(124,179,66,0.18) !important; }
+.bg-fire { background: rgba(229,57,53,0.18) !important; }
+.bg-earth { background: rgba(141,110,99,0.22) !important; }
+.bg-metal { background: rgba(176,190,197,0.16) !important; }
+.bg-water { background: rgba(66,165,245,0.18) !important; }
+
+/* ===== 八字四柱 ===== */
+.bazi-grid {
+  display: grid;
+  grid-template-columns: 64px repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 14px 0;
+}
+.bazi-grid .cell {
+  background: var(--ink-3);
+  padding: 14px 8px;
+  text-align: center;
+}
+.bazi-grid .label {
+  background: rgba(201,168,106,0.10);
+  color: var(--gold);
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 1px;
+}
+.bazi-grid .ganzi {
+  font-size: 26px;
+  letter-spacing: 2px;
+  font-family: "KaiTi", "STKaiti", serif;
+}
+.bazi-grid .tag { font-size: 11px; color: var(--text-dim); margin-top: 3px; }
+.bazi-grid .day-master { box-shadow: inset 0 0 0 2px rgba(201,168,106,0.5); }
+.bazi-grid .day-master .tag { color: var(--gold); font-weight: 600; }
+
+/* ===== 五行分布条 ===== */
+.five-elements {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 14px 0 10px;
+}
+.fe-row {
+  display: grid;
+  grid-template-columns: 40px 1fr 70px 90px;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+}
+.fe-bar-wrap {
+  height: 14px;
+  background: #191610;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.fe-bar { height: 100%; border-radius: 8px; transition: width 1s; }
+.fe-count { color: var(--text); text-align: right; font-weight: 600; }
+.fe-level { font-size: 13px; color: var(--text-dim); text-align: left; }
+.fe-level strong { color: var(--gold); }
+
+/* ===== 列表 ===== */
+ul.clean { list-style: none; }
+ul.clean li { padding: 6px 0 6px 20px; position: relative; }
+ul.clean li::before {
+  content: "◆";
+  position: absolute; left: 0;
+  color: var(--gold);
+  font-size: 10px;
+  top: 10px;
+}
+ul.clean li b { color: var(--gold); }
+ol.num-list { padding-left: 22px; }
+ol.num-list li { padding: 6px 0; }
+ol.num-list li::marker { color: var(--gold); font-weight: 600; }
+
+/* ===== 优势 / 挑战 双栏 ===== */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+@media (max-width: 700px) { .two-col { grid-template-columns: 1fr; } }
+.col-box {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px 20px;
+  background: var(--ink-2);
+}
+.col-box.good { border-color: rgba(124,179,66,0.35); }
+.col-box.warn { border-color: rgba(229,57,53,0.35); }
+.col-box h4 { margin-bottom: 8px; }
+.col-box.good h4 { color: var(--wood); }
+.col-box.warn h4 { color: var(--fire); }
+.col-box ul { list-style: none; }
+.col-box ul li { padding: 5px 0 5px 18px; position: relative; font-size: 14px; }
+.col-box.good ul li::before { content: "✓"; position: absolute; left: 0; color: var(--wood); }
+.col-box.warn ul li::before { content: "✗"; position: absolute; left: 0; color: var(--fire); }
+
+/* ===== 特质卡 ===== */
+.trait {
+  border-left: 3px solid var(--gold);
+  background: var(--ink-2);
+  padding: 16px 20px;
+  margin-bottom: 14px;
+  border-radius: 0 8px 8px 0;
+}
+.trait h4 { color: var(--gold-light); margin-bottom: 6px; }
+.trait p { font-size: 14px; color: var(--text); }
+.trait .formula {
+  margin-top: 10px;
+  padding: 8px 14px;
+  background: rgba(201,168,106,0.08);
+  border-radius: 6px;
+  color: var(--gold);
+  font-size: 13px;
+  letter-spacing: 0.5px;
+}
+
+/* ===== 速写 ===== */
+.poem {
+  border: 1px solid var(--gold-deep);
+  border-radius: 12px;
+  padding: 28px 30px;
+  margin: 18px 0;
+  background: linear-gradient(135deg, rgba(201,168,106,0.06), rgba(201,168,106,0.02));
+  text-align: center;
+  font-family: "KaiTi", "STKaiti", serif;
+  font-size: 15px;
+  line-height: 2.1;
+  color: var(--gold-light);
+  letter-spacing: 1px;
+}
+.poem::before { content: "✧"; display: block; margin-bottom: 10px; color: var(--gold); }
+
+/* ===== 星级 ===== */
+.stars { color: var(--gold); letter-spacing: 2px; }
+
+/* ===== 雷达图 ===== */
+.radar-wrap {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0 20px;
+}
+.radar-legend {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 14px;
+}
+@media (max-width: 700px) { .radar-legend { grid-template-columns: repeat(2, 1fr); } }
+.legend-item {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  text-align: center;
+  background: var(--ink-2);
+}
+.legend-item .dim { font-size: 12px; color: var(--text-dim); }
+.legend-item .score { font-size: 20px; color: var(--gold); font-weight: 600; }
+
+/* ===== 免责声明 ===== */
+.disclaimer {
+  margin-top: 30px;
+  padding: 18px 24px;
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+  font-size: 12px;
+  color: var(--text-dim);
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+/* ===== 提示框 ===== */
+.callout {
+  border-left: 3px solid var(--water);
+  background: rgba(66,165,245,0.07);
+  padding: 14px 18px;
+  border-radius: 0 8px 8px 0;
+  margin: 14px 0;
+  font-size: 14px;
+}
+.callout.gold { border-color: var(--gold); background: rgba(201,168,106,0.07); }
+.callout b { color: var(--water); }
+.callout.gold b { color: var(--gold); }
+
+/* ===== 底部 ===== */
+.footer-note {
+  text-align: center;
+  margin-top: 30px;
+  color: var(--text-dim);
+  font-size: 12px;
+  letter-spacing: 3px;
+}
+
+/* ===== 打印 ===== */
+@media print {
+  body { background: #fff; color: #333; }
+  .card { background: #fff; border-color: #ccc; box-shadow: none; }
+  :root { --text: #333; --text-dim: #666; --gold: #8a6d2e; }
+  body::before { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ===== 头部 ===== -->
+  <header class="hero">
+    <div class="kicker">八字 · 星座 · 生肖 · 姓名学</div>
+    <h1>卢标双 命理性格分析报告</h1>
+    <div class="subtitle">性别：<span>女</span> ｜ 出生：<span>公历1997年10月30日 晚上</span> ｜ 出生地：<span>广东省深圳市</span></div>
+    <div class="badges">
+      <div class="badge">星座 <b>天蝎座</b></div>
+      <div class="badge">生肖 <b>牛（火牛）</b></div>
+      <div class="badge">日主 <b>乙木</b>（身弱）</div>
+      <div class="badge">喜用神 <b>水 · 木</b></div>
+    </div>
+  </header>
+
+  <!-- ===== 一、基本信息 ===== -->
+  <section class="card">
+    <div class="section-title"><span class="num">壹</span>基本信息</div>
+    <div class="section-desc">基础信息与真太阳时修正说明</div>
+    <table class="info-table">
+      <tr><td>姓名</td><td>卢标双</td></tr>
+      <tr><td>性别</td><td>女</td></tr>
+      <tr><td>农历出生</td><td>1997年九月二十九日</td></tr>
+      <tr><td>公历出生</td><td>1997年10月30日（星期四）晚上</td></tr>
+      <tr><td>出生时辰</td><td>晚上（具体时段不确定，按戌时为主推演，亥时为辅）</td></tr>
+      <tr><td>出生地</td><td>广东省深圳市</td></tr>
+      <tr><td>真太阳时修正</td><td>深圳经度约114.1°E，真太阳时 ≈ 北京时间 − 约24分钟</td></tr>
+      <tr><td>星座</td><td><span class="w-water">天蝎座</span>（10/23 − 11/21）</td></tr>
+      <tr><td>生肖</td><td><span class="w-fire">牛（丁丑年·火牛）</span></td></tr>
+    </table>
+    <div class="callout gold"><b>时辰说明：</b>用户仅记得"晚上"出生，无法确定具体时段。深圳真太阳时较北京时间延后约24分钟，"晚上"（北京时间19:00-22:59）对应的真太阳时约为18:36-22:35，主要落在<b>戌时</b>（19:00-20:59）或<b>亥时</b>（21:00-22:59）。本报告以戌时为主要推演依据，亥时作为对照参考。</div>
+  </section>
+
+  <!-- ===== 二、八字命盘 ===== -->
+  <section class="card">
+    <div class="section-title"><span class="num">贰</span>八字命盘</div>
+    <div class="section-desc">四柱排盘 · 日主分析 · 五行分布 · 喜忌</div>
+
+    <h3 class="block-title">四柱排盘 · 主推盘：戌时（真太阳时 19:00-20:59）</h3>
+    <div class="bazi-grid">
+      <div class="cell label">柱位</div>
+      <div class="cell label">年柱</div>
+      <div class="cell label">月柱</div>
+      <div class="cell label">日柱</div>
+      <div class="cell label">时柱</div>
+
+      <div class="cell label">天干</div>
+      <div class="cell"><div class="ganzi w-fire">丁</div><div class="tag">火</div></div>
+      <div class="cell"><div class="ganzi w-metal">庚</div><div class="tag">金</div></div>
+      <div class="cell day-master"><div class="ganzi w-wood">乙</div><div class="tag">日主 · 木</div></div>
+      <div class="cell"><div class="ganzi w-fire">丙</div><div class="tag">火</div></div>
+
+      <div class="cell label">地支</div>
+      <div class="cell"><div class="ganzi w-earth">丑</div><div class="tag">土</div></div>
+      <div class="cell"><div class="ganzi w-earth">戌</div><div class="tag">土</div></div>
+      <div class="cell"><div class="ganzi w-fire">巳</div><div class="tag">火</div></div>
+      <div class="cell"><div class="ganzi w-earth">戌</div><div class="tag">土</div></div>
+
+      <div class="cell label">藏干</div>
+      <div class="cell"><div class="tag">己·癸·辛</div></div>
+      <div class="cell"><div class="tag">戊·辛·丁</div></div>
+      <div class="cell"><div class="tag">丙·庚·戊</div></div>
+      <div class="cell"><div class="tag">戊·辛·丁</div></div>
+
+      <div class="cell label">纳音</div>
+      <div class="cell"><div class="tag">涧下水</div></div>
+      <div class="cell"><div class="tag">钗钏金</div></div>
+      <div class="cell"><div class="tag">覆灯火</div></div>
+      <div class="cell"><div class="tag">屋上土</div></div>
+    </div>
+
+    <h3 class="block-title">对照盘：亥时（真太阳时 21:00-22:59）</h3>
+    <div class="bazi-grid">
+      <div class="cell label">柱位</div>
+      <div class="cell label">年柱</div>
+      <div class="cell label">月柱</div>
+      <div class="cell label">日柱</div>
+      <div class="cell label">时柱</div>
+
+      <div class="cell label">天干</div>
+      <div class="cell"><div class="ganzi w-fire">丁</div><div class="tag">火</div></div>
+      <div class="cell"><div class="ganzi w-metal">庚</div><div class="tag">金</div></div>
+      <div class="cell day-master"><div class="ganzi w-wood">乙</div><div class="tag">日主 · 木</div></div>
+      <div class="cell"><div class="ganzi w-fire">丁</div><div class="tag">火</div></div>
+
+      <div class="cell label">地支</div>
+      <div class="cell"><div class="ganzi w-earth">丑</div><div class="tag">土</div></div>
+      <div class="cell"><div class="ganzi w-earth">戌</div><div class="tag">土</div></div>
+      <div class="cell"><div class="ganzi w-fire">巳</div><div class="tag">火</div></div>
+      <div class="cell"><div class="ganzi w-water">亥</div><div class="tag">水</div></div>
+
+      <div class="cell label">藏干</div>
+      <div class="cell"><div class="tag">己·癸·辛</div></div>
+      <div class="cell"><div class="tag">戊·辛·丁</div></div>
+      <div class="cell"><div class="tag">丙·庚·戊</div></div>
+      <div class="cell"><div class="tag">壬·甲</div></div>
+
+      <div class="cell label">纳音</div>
+      <div class="cell"><div class="tag">涧下水</div></div>
+      <div class="cell"><div class="tag">钗钏金</div></div>
+      <div class="cell"><div class="tag">覆灯火</div></div>
+      <div class="cell"><div class="tag">屋上土</div></div>
+    </div>
+
+    <h3 class="block-title">日柱计算验证</h3>
+    <ul class="clean">
+      <li>公历1997年10月30日</li>
+      <li>JDN = 30 + (153×7+2)/5 + 365×6797 + 6797/4 − 6797/100 + 6797/400 − 32045 = <b>2450752</b></li>
+      <li>day_index = (2450752 − 11) mod 60 = 2450741 mod 60 = <b>41</b></li>
+      <li>序号41 → <b><span class="w-wood">乙巳</span></b>（日干乙=木，日支巳=火）｜ 纳音：覆灯火</li>
+    </ul>
+
+    <h3 class="block-title">日主分析</h3>
+    <p><b>日主乙木（阴木）—— 花草藤蔓之木</b></p>
+    <p style="font-size:14px; margin-top:8px;">乙木为阴木，如花草藤蔓，柔韧灵活、善于借力生长。乙木之人温和有礼、适应力强，善于合作与协调，有艺术感受力。但乙木也有缺乏主见、优柔寡断、过于依赖他人之弊。</p>
+    <div class="callout"><b>日主强弱：</b>乙木生于<b>戌月</b>（土月），木在土月为"死"（被当令之气所克）→ <b>身弱</b>。戌时盘木仅1.0（极弱）、水仅0.5（印星极弱），火旺3.6泄木、土旺3.3耗木、金2.8克木；亥时盘木1.5、水1.5（亥水生木）稍好但仍身弱。<b>结论：日主乙木身弱，需水（印星）生扶、木（比劫）助身。</b></div>
+
+    <h3 class="block-title">五行分布（戌时盘，含藏干权重：主气1.0 / 中气0.5 / 余气0.3）</h3>
+    <div class="five-elements">
+      <div class="fe-row">
+        <div class="w-fire">火</div>
+        <div class="fe-bar-wrap"><div class="fe-bar" style="width:90%; background:linear-gradient(90deg,#c62828,#ef5350);"></div></div>
+        <div class="fe-count">3.6</div>
+        <div class="fe-level"><strong>旺</strong>（忌神·食伤泄身）</div>
+      </div>
+      <div class="fe-row">
+        <div class="w-earth">土</div>
+        <div class="fe-bar-wrap"><div class="fe-bar" style="width:83%; background:linear-gradient(90deg,#5d4037,#a1887f);"></div></div>
+        <div class="fe-count">3.3</div>
+        <div class="fe-level"><strong>旺</strong>（忌神·财星耗身）</div>
+      </div>
+      <div class="fe-row">
+        <div class="w-metal">金</div>
+        <div class="fe-bar-wrap"><div class="fe-bar" style="width:70%; background:linear-gradient(90deg,#78909c,#cfd8dc);"></div></div>
+        <div class="fe-count">2.8</div>
+        <div class="fe-level"><strong>偏旺</strong>（忌神·官杀克身）</div>
+      </div>
+      <div class="fe-row">
+        <div class="w-wood">木</div>
+        <div class="fe-bar-wrap"><div class="fe-bar" style="width:25%; background:linear-gradient(90deg,#33691e,#8bc34a);"></div></div>
+        <div class="fe-count">1.0</div>
+        <div class="fe-level"><strong>极弱</strong>（喜用·比劫助身）</div>
+      </div>
+      <div class="fe-row">
+        <div class="w-water">水</div>
+        <div class="fe-bar-wrap"><div class="fe-bar" style="width:12%; background:linear-gradient(90deg,#0277bd,#4fc3f7);"></div></div>
+        <div class="fe-count">0.5</div>
+        <div class="fe-level"><strong>极弱</strong>（喜用·印星生身）</div>
+      </div>
+    </div>
+
+    <h3 class="block-title">五行喜忌</h3>
+    <p style="font-size:14px; margin-bottom:10px;"><b>身弱日主喜忌原则：</b>喜生扶（印星、比劫），忌克泄（官杀、食伤、财星）。</p>
+    <table>
+      <tr><th></th><th>五行</th><th>喜忌</th><th>说明</th></tr>
+      <tr><td class="w-water">喜用神</td><td class="w-water">水</td><td>印星生身</td><td class="dim">水生木，滋养日主，主学习、智慧、贵人</td></tr>
+      <tr><td class="w-wood">喜用神</td><td class="w-wood">木</td><td>比劫助身</td><td class="dim">木助木，增强自身，主合作、朋友、自立</td></tr>
+      <tr><td class="w-metal">忌神</td><td class="w-metal">金</td><td>官杀克身</td><td class="dim">金克木，压制日主，主压力、约束</td></tr>
+      <tr><td class="w-fire">忌神</td><td class="w-fire">火</td><td>食伤泄身</td><td class="dim">火泄木之气，过度消耗，主操劳、表现</td></tr>
+      <tr><td class="w-earth">忌神</td><td class="w-earth">土</td><td>财星耗身</td><td class="dim">土耗木之力，主物质追求消耗精力</td></tr>
+    </table>
+    <div class="callout gold"><b>关键提示：</b>当前八字火旺土旺，均为忌神，说明生活中容易因过度操劳、追求物质或面子而消耗自身精力。需注意补水（学习、冷静、智慧）和补木（成长、行动、自信）来平衡。</div>
+
+    <h3 class="block-title">十神简析（戌时盘）</h3>
+    <table>
+      <tr><th>柱</th><th>天干/藏干</th><th>十神</th><th>含义</th></tr>
+      <tr><td>年干</td><td class="w-fire">丁(火)</td><td>食神</td><td class="dim">聪明灵秀，温和表达，有艺术天赋</td></tr>
+      <tr><td>月干</td><td class="w-metal">庚(金)</td><td>正官</td><td class="dim">规矩自律，有事业心，受人约束</td></tr>
+      <tr><td>时干</td><td class="w-fire">丙(火)</td><td>伤官</td><td class="dim">才华外露，个性张扬，但也易得罪人</td></tr>
+    </table>
+  </section>
+
+  <!-- ===== 三、星座 ===== -->
+  <section class="card">
+    <div class="section-title"><span class="num">叁</span>西方星座分析</div>
+    <div class="section-desc">天蝎座 Scorpio · 水元素 · 冥王星 · 固定宫</div>
+
+    <h3 class="block-title">基本特质</h3>
+    <p style="font-size:14px;">天蝎座如深海般神秘深沉，拥有极强的洞察力和意志力。她们爱憎分明，情感浓烈，有强烈的控制欲和深度。外冷内热，不轻易展露内心世界，但一旦认定便全力以赴。天蝎座是十二星座中最具深度和力量的星座之一，表面冷静如冰，内心却燃烧着炽热的火焰。</p>
+
+    <div class="two-col">
+      <div class="col-box good">
+        <h4>性格优势</h4>
+        <ul>
+          <li><b>洞察力极强</b>：直觉敏锐，看透表象直抵本质</li>
+          <li><b>意志力惊人</b>：确立目标便不达目的不罢休</li>
+          <li><b>忠诚专一</b>：对认定的人和事全身心投入</li>
+          <li><b>有深度</b>：思考深入，有哲学思维</li>
+          <li><b>善于保守秘密</b>：值得信赖，嘴严心细</li>
+        </ul>
+      </div>
+      <div class="col-box warn">
+        <h4>性格挑战</h4>
+        <ul>
+          <li><b>占有欲和嫉妒心强</b>：感情中容易过度掌控</li>
+          <li><b>爱恨极端</b>：非黑即白，缺乏弹性</li>
+          <li><b>记仇</b>：受伤后难以释怀</li>
+          <li><b>多疑不轻易信任</b>：防备心重</li>
+          <li><b>控制欲过强</b>：有强烈掌控需求</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="block-title">情感与人际</h3>
+    <ul class="clean">
+      <li>爱得深沉而强烈，需要<b>绝对的忠诚</b></li>
+      <li>不轻易动心，但一旦动心便全身心投入</li>
+      <li>背叛是最大的底线，触犯则不可挽回</li>
+      <li>圈子极小但关系极深，不善寒暄但真诚</li>
+      <li>不轻易信任，但信任后极忠诚</li>
+    </ul>
+
+    <h3 class="block-title">事业倾向</h3>
+    <p style="font-size:14px;">心理学、调查研究、医学、金融分析、研究、侦探等需要<b>洞察力和深度</b>的领域。</p>
+  </section>
+
+  <!-- ===== 四、生肖 ===== -->
+  <section class="card">
+    <div class="section-title"><span class="num">肆</span>生肖分析</div>
+    <div class="section-desc">生肖牛 · 丁丑年火牛</div>
+
+    <h3 class="block-title">生肖牛特质</h3>
+    <p style="font-size:14px;">牛年生人勤劳踏实、忠厚老实，有"老黄牛"精神。性格沉稳内敛，做事一步一个脚印，不怕吃苦。有强烈的责任感和家庭观念。</p>
+
+    <div class="two-col">
+      <div class="col-box good">
+        <h4>性格优势</h4>
+        <ul>
+          <li>勤劳踏实，不怕吃苦，有耐力</li>
+          <li>忠诚可靠，重承诺</li>
+          <li>有耐心和毅力，能长期坚持</li>
+          <li>责任感强，有担当</li>
+          <li>节俭持家，善于积累</li>
+        </ul>
+      </div>
+      <div class="col-box warn">
+        <h4>性格挑战</h4>
+        <ul>
+          <li>固执己见，不善变通</li>
+          <li>不善表达情感，缺乏浪漫</li>
+          <li>过于保守，抗拒改变</li>
+          <li>脾气倔强，认死理</li>
+          <li>行动缓慢，不够灵活</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="block-title">生肖五行：火牛（丁丑年）</h3>
+    <p style="font-size:14px;">丁丑年为火牛之命。火牛比一般牛更热情有干劲，更有上进心和行动力，但也更容易急躁不安。火牛纳音为<span class="w-water">"涧下水"</span>——外表如溪涧之水般平静温和，内里却蕴含<span class="w-fire">火</span>的热情。</p>
+
+    <h3 class="block-title">生肖与日主关系</h3>
+    <ul class="clean">
+      <li>生肖牛（丑土）与日主乙木：丑土为<b>财星</b>，牛的踏实勤奋有助于日主在物质层面的积累，但土旺也消耗日主精力</li>
+      <li>丑中藏<b>癸水</b>（偏印）、<b>辛金</b>（七杀），暗示属牛之人内心有学习和成长的潜力，但也承受压力</li>
+      <li>丑与巳（日支）构成<b>巳酉丑三合金局</b>的一部分（缺酉），金气暗旺，官杀力量增强，事业心强但压力也大</li>
+    </ul>
+  </section>
+
+  <!-- ===== 五、姓名学 ===== -->
+  <section class="card">
+    <div class="section-title"><span class="num">伍</span>姓名学分析</div>
+    <div class="section-desc">卢标双 · 康熙笔画五格数理</div>
+
+    <h3 class="block-title">笔画信息（以《康熙字典》繁体为准）</h3>
+    <table>
+      <tr><th>字</th><th>繁体</th><th>康熙笔画</th><th>五行</th><th>说明</th></tr>
+      <tr><td>卢</td><td>盧</td><td><b>16画</b></td><td class="w-fire">火</td><td class="dim">简体5画 → 繁体16画</td></tr>
+      <tr><td>标</td><td>標</td><td><b>15画</b></td><td class="w-wood">木</td><td class="dim">木部，木(4)+票(11)=15画</td></tr>
+      <tr><td>双</td><td>雙</td><td><b>18画</b></td><td class="w-metal">金</td><td class="dim">隹(8)×2+又(2)=18画</td></tr>
+    </table>
+
+    <h3 class="block-title">五格数理</h3>
+    <table>
+      <tr><th>格</th><th>计算过程</th><th>数理</th><th>五行</th><th>吉凶</th><th>含义</th></tr>
+      <tr><td>天格</td><td class="dim">16+1</td><td><b>17</b></td><td class="w-metal">金(尾7)</td><td style="color:#4db6ac;">吉</td><td class="dim">突破万难，刚柔相济</td></tr>
+      <tr><td>人格</td><td class="dim">16+15</td><td><b>31</b></td><td class="w-wood">木(尾1)</td><td style="color:#4db6ac; font-weight:600;">大吉</td><td class="dim">智勇得志，心想事成</td></tr>
+      <tr><td>地格</td><td class="dim">15+18</td><td><b>33</b></td><td class="w-fire">火(尾3)</td><td style="color:#4db6ac; font-weight:600;">大吉</td><td class="dim">旭日升天，鸾凤相会</td></tr>
+      <tr><td>外格</td><td class="dim">49−31+1</td><td><b>19</b></td><td class="w-water">水(尾9)</td><td style="color:#e57373;">凶</td><td class="dim">多难风云，遮云蔽月</td></tr>
+      <tr><td>总格</td><td class="dim">16+15+18</td><td><b>49</b></td><td class="w-water">水(尾9)</td><td style="color:#ffb74d;">凶带吉</td><td class="dim">吉凶难分，不断辛苦</td></tr>
+    </table>
+
+    <h3 class="block-title">三才配置</h3>
+    <p style="font-size:15px; text-align:center; margin:10px 0 16px; letter-spacing:4px;">
+      <span class="w-metal">天格·金(17)</span> <span style="color:var(--text-dim);">→</span> <span class="w-wood">人格·木(31)</span> <span style="color:var(--text-dim);">→</span> <span class="w-fire">地格·火(33)</span> = <span style="color:var(--gold);">金·木·火</span>
+    </p>
+    <ul class="clean">
+      <li><b>天格金克人格木</b>（天克人）：上级/长辈对自身有一定压制，早年发展可能受限</li>
+      <li><b>人格木生地格火</b>（人生地）：自身对下属/晚辈有助益，中晚年发展较好</li>
+      <li>整体评价：<b>凶中带吉</b>——早年需克服外在压力，中晚年后逐渐顺遂</li>
+      <li>金克木的冲突暗示内心时有矛盾，理想与现实之间有张力</li>
+    </ul>
+
+    <h3 class="block-title">姓名学综合评价</h3>
+    <ul class="clean">
+      <li><b>人格31（大吉）</b>是名字的核心数理，主运极佳，智勇双全，有得志之象</li>
+      <li><b>地格33（大吉）</b>前运好，青少年时期有朝气和发展潜力</li>
+      <li><b>总格49（凶带吉）</b>后运起伏，需持续努力方能成就</li>
+      <li><b>外格19（凶）</b>人际关系方面可能有些波折，需注意社交中的误解</li>
+      <li><b>三才金木火</b>配置一般，早年有压力但后期转好</li>
+    </ul>
+  </section>
+
+  <!-- ===== 六、性格综合 ===== -->
+  <section class="card">
+    <div class="section-title"><span class="num">陆</span>性格综合推演</div>
+    <div class="section-desc">八字 × 星座 × 生肖 × 姓名学 多体系交叉验证</div>
+
+    <h3 class="block-title">核心性格特质</h3>
+
+    <div class="trait">
+      <h4>1. 外柔内刚，深不可测</h4>
+      <p>乙木日主赋予了你<b>外表的柔和与灵活</b>——如藤蔓般柔韧、善于适应环境、温和有礼。而天蝎座赋予了你<b>内心的深沉与刚强</b>——意志力惊人、洞察力超凡、爱憎分明。这种"外柔内刚"的特质使你在社交中如鱼得水，但一旦触及核心利益或价值观，便会展现出令人意外的坚定和力量。</p>
+      <div class="formula">乙木的柔 + 天蝎的刚 = 藤蔓般的坚韧 —— 看似柔弱，实则百折不挠</div>
+    </div>
+
+    <div class="trait">
+      <h4>2. 直觉敏锐，洞察人心</h4>
+      <p>天蝎座本身就是十二星座中直觉力最强的星座，加之乙木日主细腻敏感的特质，使你拥有超乎常人的<b>洞察力和共情力</b>。你善于察言观色，能迅速感知他人的情绪变化和真实意图。牛的谨慎踏实又让你不会轻易被表象迷惑，往往在关键时刻做出精准判断。</p>
+      <div class="formula">但这份洞察力也是双刃剑 —— 看透太多容易多疑敏感，过度分析反而增加内心负担</div>
+    </div>
+
+    <div class="trait">
+      <h4>3. 责任感强，追求完美</h4>
+      <p>火牛的热情干劲 + 天蝎的极致追求 + 乙木的细致入微 = 对工作和责任的<b>极致追求</b>。你不满足于"差不多"，一旦接手便会全力以赴。丑土财星的存在让你对物质成果有追求，庚金正官让你有强烈的规矩感和自律意识。</p>
+      <div class="formula">但身弱日主 + 火旺泄身，意味着精力储备有限，过度追求完美容易导致身心俱疲</div>
+    </div>
+
+    <div class="trait">
+      <h4>4. 情感浓烈，表达含蓄</h4>
+      <p>天蝎座水元素的深沉 + 乙木的温和内敛 + 牛的不善表达 = 情感极为丰富但<b>表达方式含蓄</b>。你内心热情如火（火旺3.6），但外在表现温和克制。这种"心中有火，面上如水"的特质让你显得神秘而有魅力，但也容易让亲近的人感到难以走近。</p>
+      <div class="formula">心中有火，面上如水 —— 神秘而有魅力，但也需要学习更直接的情感表达</div>
+    </div>
+
+    <h3 class="block-title">性格优势</h3>
+    <ol class="num-list">
+      <li><b>坚韧不拔</b>：乙木的柔韧 + 天蝎的意志力 + 牛的耐力 = 超强的持久力和抗压力，认准的事绝不放弃</li>
+      <li><b>洞察力超群</b>：天蝎的直觉 + 乙木的敏感 + 牛的谨慎 = 极强的观察力和判断力，善于发现隐藏信息</li>
+      <li><b>忠诚可靠</b>：天蝎的专一 + 牛的忠厚 + 乙木的善良 = 对认定的人和事绝对忠诚，值得信赖</li>
+      <li><b>协调能力强</b>：乙木善于借力 + 天蝎善于布局 = 在团队中能发挥独特的协调和幕后推动作用</li>
+      <li><b>有深度有内涵</b>：天蝎的深邃 + 乙木的艺术感 + 牛的踏实 = 既有思想深度又有实际执行力</li>
+    </ol>
+
+    <h3 class="block-title">性格挑战</h3>
+    <ol class="num-list">
+      <li><b>情绪波动大</b>：火旺（3.6）+ 天蝎情绪浓烈 + 身弱 = 内心情绪起伏剧烈，容易焦虑和内耗</li>
+      <li><b>多疑敏感</b>：天蝎座天性多疑 + 乙木敏感 + 水弱（灵活性不足）= 容易过度解读他人言行</li>
+      <li><b>优柔寡断与果断并存</b>：乙木的优柔寡断 vs 天蝎的爱恨分明——小事上犹豫不决，大事上又可能过于极端</li>
+      <li><b>不善表达情感</b>：牛的不善表达 + 天蝎的内敛 = 丰富的情感难以有效传达，容易造成误解</li>
+      <li><b>过度消耗自己</b>：火旺泄身 + 责任感过强 + 追求完美 = 容易忽视自身需求，透支精力</li>
+      <li><b>固执认死理</b>：牛的倔强 + 天蝎的偏执 + 乙木的不善变通 = 一旦钻牛角尖很难回头</li>
+    </ol>
+
+    <h3 class="block-title">多体系交叉验证 · 一致性分析</h3>
+    <p style="font-size:13px; color:var(--text-dim); margin-bottom:10px;">各体系结果一致 → 性格特质更加突出、主导</p>
+    <table>
+      <tr><th>特质</th><th>八字乙木</th><th>天蝎座</th><th>生肖牛</th><th>一致性</th></tr>
+      <tr><td>韧性/坚持</td><td class="dim">柔韧不折</td><td class="dim">意志力惊人</td><td class="dim">有耐心有毅力</td><td class="stars">★★★ 高度一致</td></tr>
+      <tr><td>忠诚/专一</td><td class="dim">善于合作重关系</td><td class="dim">忠诚专一重情义</td><td class="dim">忠诚可靠重承诺</td><td class="stars">★★★ 高度一致</td></tr>
+      <tr><td>内敛/深沉</td><td class="dim">温和不张扬</td><td class="dim">外冷内热不展露</td><td class="dim">沉稳内敛不善表达</td><td class="stars">★★★ 高度一致</td></tr>
+      <tr><td>敏感/洞察</td><td class="dim">细腻敏感</td><td class="dim">洞察力极强</td><td class="dim">谨慎不轻信</td><td class="stars">★★★ 高度一致</td></tr>
+    </table>
+
+    <h3 class="block-title">多体系交叉验证 · 矛盾点分析</h3>
+    <p style="font-size:13px; color:var(--text-dim); margin-bottom:10px;">各体系结果矛盾 → 性格更复杂、多面，存在内在张力</p>
+    <table>
+      <tr><th>矛盾维度</th><th>八字乙木</th><th>天蝎座</th><th>生肖牛</th><th>张力解析</th></tr>
+      <tr><td>决断力</td><td class="dim">优柔寡断</td><td class="dim">果断决绝</td><td class="dim">固执认死理</td><td style="text-align:left; font-size:13px;">小事犹豫，大事果断；日常随和，底线坚硬</td></tr>
+      <tr><td>表达欲</td><td class="dim">圆融善交际</td><td class="dim">不善寒暄但真诚</td><td class="dim">不善表达</td><td style="text-align:left; font-size:13px;">社交场合圆融得体，但真正的想法深藏不露</td></tr>
+      <tr><td>行动力</td><td class="dim">善借力不冒进</td><td class="dim">不达目的不罢休</td><td class="dim">行动缓慢踏实</td><td style="text-align:left; font-size:13px;">前期观察谋虑，一旦出手便全力推进</td></tr>
+      <tr><td>热情度</td><td class="dim">温和有礼不激烈</td><td class="dim">内心炽热浓烈</td><td class="dim">火牛热情急躁</td><td style="text-align:left; font-size:13px;">表面温和克制，内心却燃烧着强烈的热情</td></tr>
+    </table>
+
+    <h3 class="block-title">性格维度雷达</h3>
+    <div class="radar-wrap">
+      <svg width="360" height="320" viewBox="0 0 360 320" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="radarFill" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#c9a86a" stop-opacity="0.45"/>
+            <stop offset="100%" stop-color="#c9a86a" stop-opacity="0.15"/>
+          </radialGradient>
+        </defs>
+        <g transform="translate(180,165)">
+          <!-- 同心网格 -->
+          <circle r="110" fill="none" stroke="#3d3525" stroke-width="1"/>
+          <circle r="82.5" fill="none" stroke="#3d3525" stroke-width="0.7"/>
+          <circle r="55" fill="none" stroke="#3d3525" stroke-width="0.7"/>
+          <circle r="27.5" fill="none" stroke="#3d3525" stroke-width="0.7"/>
+          <!-- 轴线 -->
+          <line x1="0" y1="0" x2="0" y2="-110" stroke="#3d3525" stroke-width="0.7"/>
+          <line x1="0" y1="0" x2="0" y2="110" stroke="#3d3525" stroke-width="0.7"/>
+          <line x1="0" y1="0" x2="110" y2="0" stroke="#3d3525" stroke-width="0.7"/>
+          <line x1="0" y1="0" x2="-110" y2="0" stroke="#3d3525" stroke-width="0.7"/>
+          <line x1="0" y1="0" x2="77.8" y2="-77.8" stroke="#3d3525" stroke-width="0.7"/>
+          <line x1="0" y1="0" x2="-77.8" y2="-77.8" stroke="#3d3525" stroke-width="0.7"/>
+          <line x1="0" y1="0" x2="77.8" y2="77.8" stroke="#3d3525" stroke-width="0.7"/>
+          <line x1="0" y1="0" x2="-77.8" y2="77.8" stroke="#3d3525" stroke-width="0.7"/>
+          <!-- 数据多边形 (1-10分 → r = 分/10 × 110) -->
+          <polygon points="0,-55 77.8,-77.8 110,0 77.8,77.8 0,110 -77.8,77.8 -55,0 -77.8,-77.8"
+                   fill="url(#radarFill)" stroke="#c9a86a" stroke-width="2" stroke-linejoin="round"/>
+          <!-- 顶点 -->
+          <g fill="#e8d5a8">
+            <circle cx="0" cy="-55" r="3.5"/>
+            <circle cx="77.8" cy="-77.8" r="3.5"/>
+            <circle cx="110" cy="0" r="3.5"/>
+            <circle cx="77.8" cy="77.8" r="3.5"/>
+            <circle cx="0" cy="110" r="3.5"/>
+            <circle cx="-77.8" cy="77.8" r="3.5"/>
+            <circle cx="-55" cy="0" r="3.5"/>
+            <circle cx="-77.8" cy="-77.8" r="3.5"/>
+          </g>
+          <!-- 维度标签 -->
+          <text x="0" y="-122" text-anchor="middle" fill="#e8d5a8" font-size="11">行动力 5</text>
+          <text x="97" y="-80" text-anchor="middle" fill="#e8d5a8" font-size="11">领导力 5</text>
+          <text x="122" y="4" text-anchor="middle" fill="#e8d5a8" font-size="11">创造力 7</text>
+          <text x="97" y="96" text-anchor="middle" fill="#e8d5a8" font-size="11">社交力 6</text>
+          <text x="0" y="130" text-anchor="middle" fill="#e8d5a8" font-size="11">情绪稳定 4</text>
+          <text x="-97" y="96" text-anchor="middle" fill="#e8d5a8" font-size="11">理性逻辑 7</text>
+          <text x="-82" y="4" text-anchor="middle" fill="#e8d5a8" font-size="11">情感深度 8</text>
+          <text x="-97" y="-80" text-anchor="middle" fill="#e8d5a8" font-size="11">意志力 7</text>
+        </g>
+      </svg>
+    </div>
+    <div class="radar-legend">
+      <div class="legend-item"><div class="dim">行动力/执行力</div><div class="score">5</div></div>
+      <div class="legend-item"><div class="dim">领导力/决断力</div><div class="score">5</div></div>
+      <div class="legend-item"><div class="dim">创造力/想象力</div><div class="score">7</div></div>
+      <div class="legend-item"><div class="dim">社交力/人际力</div><div class="score">6</div></div>
+      <div class="legend-item"><div class="dim">情绪稳定性</div><div class="score">4</div></div>
+      <div class="legend-item"><div class="dim">理性/逻辑力</div><div class="score">7</div></div>
+      <div class="legend-item"><div class="dim">情感深度/共情力</div><div class="score">8</div></div>
+      <div class="legend-item"><div class="dim">意志力/抗压力</div><div class="score">7</div></div>
+    </div>
+
+    <table style="margin-top:16px;">
+      <tr><th>维度</th><th>评分</th><th>说明</th></tr>
+      <tr><td>行动力/执行力</td><td style="color:var(--gold); font-weight:600;">5</td><td style="text-align:left; font-size:13px;" class="dim">乙木身弱偏被动，天蝎固定宫思虑多，行动前需要充分观察和准备，不轻易出手</td></tr>
+      <tr><td>领导力/决断力</td><td style="color:var(--gold); font-weight:600;">5</td><td style="text-align:left; font-size:13px;" class="dim">乙木不善主导，但天蝎有潜在领导力；日常随和，关键时刻能决断</td></tr>
+      <tr><td>创造力/想象力</td><td style="color:var(--gold); font-weight:600;">7</td><td style="text-align:left; font-size:13px;" class="dim">乙木有艺术感 + 天蝎有深度思考 + 水元素赋予灵感，创造力不错</td></tr>
+      <tr><td>社交力/人际力</td><td style="color:var(--gold); font-weight:600;">6</td><td style="text-align:left; font-size:13px;" class="dim">乙木圆融善交际，但天蝎圈子小且防备重；外格19凶，人际关系有波折</td></tr>
+      <tr><td>情绪稳定性</td><td style="color:var(--gold); font-weight:600;">4</td><td style="text-align:left; font-size:13px;" class="dim">火旺急躁 + 天蝎情绪浓烈 + 身弱 = 内心波动大，情绪管理是重要课题</td></tr>
+      <tr><td>理性/逻辑力</td><td style="color:var(--gold); font-weight:600;">7</td><td style="text-align:left; font-size:13px;" class="dim">天蝎洞察力强 + 庚金正官自律 + 牛的踏实理性 = 有不错的分析和逻辑能力</td></tr>
+      <tr><td>情感深度/共情力</td><td style="color:var(--gold); font-weight:600;">8</td><td style="text-align:left; font-size:13px;" class="dim">天蝎深情 + 水元素 + 乙木温和善感 = 情感极为丰富，共情力出众</td></tr>
+      <tr><td>意志力/抗压力</td><td style="color:var(--gold); font-weight:600;">7</td><td style="text-align:left; font-size:13px;" class="dim">天蝎意志力惊人 + 牛的耐力 + 乙木的韧性 = 潜在抗压能力很强</td></tr>
+    </table>
+  </section>
+
+  <!-- ===== 七、运势概要 ===== -->
+  <section class="card">
+    <div class="section-title"><span class="num">柒</span>运势概要与建议</div>
+    <div class="section-desc">人生基调 · 性格与命运 · 发展建议</div>
+
+    <h3 class="block-title">人生基调</h3>
+    <div class="callout gold"><b>乙木身弱，火土旺而泄耗，需水木生扶方能成势。</b></div>
+    <p style="font-size:14px; margin-bottom:12px;">你的命格如同一株生长在干旱燥热之地的花草藤蔓——环境充满挑战（火旺土旺，泄耗日主），但你本身拥有极强的韧性和生命力（乙木柔韧 + 天蝎意志 + 火牛干劲）。关键在于找到滋养自己的<b>"水源"</b>——知识、智慧、贵人和内心的平静。</p>
+    <p style="font-size:14px; margin-bottom:12px;">早年可能面临较多的外在压力和自我消耗（三才金克木，天克人），但中年后随着阅历增长和自我认知的深化，逐渐找到平衡点，发挥出乙木借力生长、天蝎洞察布局的优势，人生的下半场会比上半场更加从容。</p>
+    <p style="font-size:14px;">天蝎座固定宫的特质意味着你是一个<b>"大器晚成"</b>型的人——需要时间积累和沉淀，但一旦发力便势不可挡。</p>
+
+    <h3 class="block-title">性格与命运的关系</h3>
+    <ol class="num-list">
+      <li><b>外柔内刚的双面性是你的核心武器</b>：乙木的柔让你在人际中如鱼得水，天蝎的刚让你在关键时刻不容侵犯。善用这个特质，在需要合作时展现柔和，在需要坚持时展现刚强。</li>
+      <li><b>洞察力是你的天赋也是你的负担</b>：天蝎的直觉 + 乙木的敏感让你能看透人心，但过度使用会让自己陷入多疑和焦虑。学会"看破不说破"，给自己留些喘息的空间。</li>
+      <li><b>火旺是双刃剑</b>：火旺赋予你热情和表达力（火牛+食伤旺），但也消耗着本就虚弱的日主。热情要用在刀刃上，不要在无谓的事情上过度消耗。</li>
+      <li><b>水弱（印星弱）是你最大的短板</b>：水代表学习、智慧、贵人。水弱意味着你需要比常人更努力地去学习、去寻找导师和贵人。主动亲近水——读书、学习、冥想、接触智慧的人和事物。</li>
+    </ol>
+
+    <h3 class="block-title">短期建议（生活调整）</h3>
+    <div class="two-col">
+      <div class="col-box good">
+        <h4 style="color:var(--water);">补水 — 滋养身心</h4>
+        <ul>
+          <li>多读书学习（水为印星，主智慧学问）</li>
+          <li>练习冥想或静坐，培养内心的平静</li>
+          <li>亲近水：游泳、临水而居、多饮茶水</li>
+          <li>佩戴黑色/蓝色饰品，增加水元素</li>
+          <li>培养一项需要深度思考的爱好</li>
+        </ul>
+      </div>
+      <div class="col-box" style="border-color:rgba(124,179,66,0.35);">
+        <h4 style="color:var(--wood);">补木 — 增强自信</h4>
+        <ul>
+          <li>多接触自然，户外运动，亲近绿色植物</li>
+          <li>培养独立做决定的勇气，从小事练习果断</li>
+          <li>主动拓展社交圈，结交志同道合的朋友</li>
+          <li>穿戴绿色/青色衣物</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-box warn" style="margin-top:14px;">
+      <h4 style="color:var(--fire);">控火 — 管理情绪</h4>
+      <ul>
+        <li>注意情绪管理，学习觉察和调节情绪的方法</li>
+        <li>避免过度操劳，给自己留出休息和恢复的时间</li>
+        <li>减少不必要的社交表现欲（火为食伤，过度表达消耗自身）</li>
+        <li>注意心血管健康，定期体检</li>
+      </ul>
+    </div>
+
+    <h3 class="block-title">中期建议（职业发展）</h3>
+    <h4>发挥优势领域</h4>
+    <ul class="clean">
+      <li>适合需要<b>深度分析 + 人际协调</b>的工作：心理咨询、调查研究、金融分析、人力资源、用户研究</li>
+      <li>适合需要<b>耐心坚持 + 独立思考</b>的工作：科研、学术、写作、艺术创作</li>
+      <li>适合需要<b>洞察力 + 责任感</b>的工作：医疗、质量管理、风控</li>
+    </ul>
+    <h4>避免的领域</h4>
+    <ul class="clean">
+      <li>过度消耗型工作（高强度销售、频繁社交应酬）</li>
+      <li>需要频繁决策但缺乏深度的岗位</li>
+      <li>完全被动执行、缺乏思考空间的工作</li>
+    </ul>
+    <h4>事业策略</h4>
+    <ul class="clean">
+      <li>前期以<b>学习和积累</b>为主（补水/印星）</li>
+      <li>中期借助<b>贵人和合作伙伴</b>发力（补木/比劫）</li>
+      <li>避免过早独立创业，更适合在组织中找到自己的<b>深度领域</b></li>
+    </ul>
+
+    <h3 class="block-title">长期建议（人生方向）</h3>
+    <ol class="num-list">
+      <li><b>修炼"看破不说破"的智慧</b>：你的洞察力是天赋，但不必事事点破。学会选择性使用你的敏锐，保护自己也保护他人。</li>
+      <li><b>建立信任的勇气</b>：天蝎座的多疑 + 乙木的敏感让你难以信任他人，但人生需要深度联结。选择值得信任的人，给予有限度的信任，逐步扩大。</li>
+      <li><b>找到"水"的导师/贵人</b>：你命中最缺水（印星），意味着贵人对你的帮助极为重要。主动寻找智慧、沉稳、有水的特质的导师。</li>
+      <li><b>平衡热情与能量</b>：火牛的热情和天蝎的投入让你容易全力以赴，但身弱日主需要量力而行。学会在热情与节制之间找到平衡。</li>
+      <li><b>接纳自己的复杂</b>：乙木的柔 + 天蝎的刚 + 火牛的急——你的性格是多面的、丰富的。不必强求单一标签，接纳自己的复杂性，在不同情境中灵活调取不同面向。</li>
+    </ol>
+
+    <div class="poem">
+      你是冬日里深潭中的一株水草<br>
+      表面随波摇曳、温和柔韧<br>
+      根却深扎在幽暗的水底<br>
+      坚韧而不容撼动<br><br>
+      你看得见别人看不见的暗流<br>
+      感受得到别人感受不到的温度变化<br>
+      你不善言辞却心中有火<br>
+      不争不抢却暗自有执<br><br>
+      你需要的不是更多的阳光和掌声<br>
+      而是一汪清泉——<br>
+      让心灵得到滋养，让根系更加深广<br>
+      待到春水涨时，藤蔓自有攀天日
+    </div>
+
+  </section>
+
+  <!-- ===== 免责声明 ===== -->
+  <div class="disclaimer">
+    ⚠ 免责声明：本报告基于中国传统命理学（八字五行、生肖姓名学）和西方占星术的理论框架生成，仅供参考和娱乐，不应作为人生决策的依据。命运掌握在自己手中，性格可以认知和修炼，未来由当下的每一个选择决定。
+  </div>
+
+  <div class="footer-note">☯ 命理性格分析报告 · 生成于 2026年10月12日 ☯</div>
+
+</div>
+
+</body>
+</html>
